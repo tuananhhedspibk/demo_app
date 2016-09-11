@@ -1,14 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @user.name %>
+	<strong>Name:</strong>
+	<%= @user.name %>
 </p>
 
 <p>
-  <strong>Email:</strong>
-  <%= @user.email %>
+	<strong>Email:</strong>
+	<%= @user.email %>
 </p>
+<p style="color: red; font-weight: bold;">Micropost List</p>
+<% @microposts.each do |micropost|%>
+	<% if micropost.user_id == @user.id %>
+		<p>- <%= micropost.content %></p>
+	<% end %>
+<% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
